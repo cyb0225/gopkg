@@ -3,6 +3,7 @@ module github.com/cyb0225/gopkg
 go 1.20
 
 require (
+	github.com/jinzhu/copier v0.4.0
 	github.com/stretchr/testify v1.8.4
 	go.uber.org/zap v1.26.0
 	google.golang.org/grpc v1.60.0
