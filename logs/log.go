@@ -23,6 +23,8 @@ type Logger interface {
 	Info(ctx context.Context, format string, args ...any)
 	Warn(ctx context.Context, format string, args ...any)
 	Error(ctx context.Context, format string, args ...any)
+	Panic(ctx context.Context, format string, args ...any)
+	Fatal(ctx context.Context, format string, args ...any)
 }
 
 func Debug(ctx context.Context, format string, args ...any) {
@@ -39,4 +41,12 @@ func Warn(ctx context.Context, format string, args ...any) {
 
 func Error(ctx context.Context, format string, args ...any) {
 	logger.Error(ctx, format, args...)
+}
+
+func Panic(ctx context.Context, format string, args ...any) {
+	logger.Panic(ctx, format, args...)
+}
+
+func Fatal(ctx context.Context, format string, args ...any) {
+	logger.Fatal(ctx, format, args...)
 }

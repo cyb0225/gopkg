@@ -40,6 +40,14 @@ func (z *ZapLog) Error(ctx context.Context, format string, args ...any) {
 	z.wrapCtx(ctx).Errorf(format, args...)
 }
 
+func (z *ZapLog) Panic(ctx context.Context, format string, args ...any) {
+	z.wrapCtx(ctx).Panicf(format, args...)
+}
+
+func (z *ZapLog) Fatal(ctx context.Context, format string, args ...any) {
+	z.wrapCtx(ctx).Fatalf(format, args...)
+}
+
 func (z *ZapLog) wrapCtx(ctx context.Context) *zap.SugaredLogger {
 	kvs := GetAllKVs(ctx)
 	fields := make([]zap.Field, 0, (len(kvs)+1)/2)

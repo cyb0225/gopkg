@@ -13,3 +13,20 @@ func TestLog(t *testing.T) {
 	Warn(ctx, "warn: %d", 3)
 	Error(ctx, "error: %d", 4)
 }
+
+func TestPanicLog(t *testing.T) {
+	ctx := context.TODO()
+	defer func() {
+		a := recover()
+		if a == nil {
+			t.Fatal("program do not panic")
+		}
+		t.Log(a)
+	}()
+	Panic(ctx, "panic: %d", 5)
+}
+
+//func TestFatalLog(t *testing.T) {
+//	ctx := context.TODO()
+//	Fatal(ctx, "fatal: %d", 5)
+//}
